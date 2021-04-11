@@ -2,13 +2,10 @@ package englishclass.controller;
 
 import englishclass.model.ModelAcess;
 import englishclass.util.Animation;
-import englishclass.view.ViewFactory;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Node;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
@@ -50,12 +47,9 @@ public class SignUpController extends AbstractController implements Initializabl
     public void goCancel(ActionEvent event) {
         LoginController controller = getModel().getController();
         var anima = new Animation(anchorPane).fadeOutDown();
-        anima.setOnFinished(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent actionEvent) {
-                controller.stackPane.getChildren().remove(1);
-                controller.changeAttributes(false);
-            }
+        anima.setOnFinished(actionEvent -> {
+            controller.stackPane.getChildren().remove(1);
+            controller.changeAttributes(false);
         });
         anima.play();
     }
