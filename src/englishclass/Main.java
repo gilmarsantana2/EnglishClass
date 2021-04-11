@@ -12,13 +12,7 @@ public class Main extends Application {
     @Override
     public void start(Stage primaryStage){
         primaryStage.setTitle("English Class");
-        //var config = new File("../config/config.properties");
-        //System.out.println(config.getCanonicalPath());
-        //if(config.exists()){
-            primaryStage.setScene(ViewFactory.view.startBorder());
-       // }else{
-        //    primaryStage.setScene(ViewFactory.view.getInstallView());
-        //}
+        primaryStage.setScene(ViewFactory.view.getLoginView());
         primaryStage.getIcons().add(ViewFactory.view.getAppIcon());
         ViewFactory.view.getModelAcess().setPrimaryStage(primaryStage);
         primaryStage.show();

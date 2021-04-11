@@ -1,5 +1,6 @@
 package englishclass.controller;
 
+import englishclass.view.ViewFactory;
 import javafx.fxml.Initializable;
 import englishclass.model.ModelAcess;
 

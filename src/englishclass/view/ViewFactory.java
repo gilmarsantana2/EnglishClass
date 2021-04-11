@@ -36,9 +36,9 @@ public class ViewFactory {
         return inicializeScene(topMenu, controller);
     }
 
-    public Node getLoginView(){
+    public Scene getLoginView(){
         LoginController controller = new LoginController(modelAcess);
-        return inicializeScene(loginView, controller);
+        return new Scene((Parent) inicializeScene(loginView, controller));
     }
 
     public Scene getInstallView(){
@@ -86,6 +86,7 @@ public class ViewFactory {
     private String menuIcon ="menu.png";
     private String doorIcon ="opened-door.png";
     private String settingsIcon ="settings.png";
+    private String googleIcon= "google_logo.png";
 
     public Image getUserImage(){
         return getIcon(userImage);
@@ -107,6 +108,9 @@ public class ViewFactory {
     }
     public Image getSettingIcon(){
         return getIcon(settingsIcon);
+    }
+    public Image getGoogleIcon(){
+        return getIcon(googleIcon);
     }
 
     private Image getIcon(String path){

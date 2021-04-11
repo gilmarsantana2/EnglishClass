@@ -6,6 +6,7 @@ public class ModelAcess {
 
     private boolean menu = false;
     private Stage primaryStage;
+    private UserModel usuario;
 
     public Stage getPrimaryStage() {
         return primaryStage;
@@ -21,5 +22,13 @@ public class ModelAcess {
 
     public void setMenuOpen(boolean menu) {
         this.menu = menu;
+    }
+
+    public UserModel getUsuario() {
+        return usuario;
+    }
+
+    public void setUsuario(UserModel usuario) {
+        this.usuario = usuario;
     }
 }
