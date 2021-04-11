@@ -45,7 +45,13 @@ public class LoginController extends AbstractController implements Initializable
     public void goSignIn(ActionEvent event) {
         var dao = new UserDao();
         getModel().setUsuario(dao.selectByName(txtUsername.getText()));
-        getModel().getPrimaryStage().setScene(ViewFactory.view.startBorder());
+        if (getModel().getUsuario() != null){
+            getModel().getPrimaryStage().setScene(ViewFactory.view.startBorder());
+        }else {
+            //todo
+            System.out.println("Erro ao logar");
+        }
+
     }
 
     @FXML

@@ -47,7 +47,7 @@ public class TopMenuController extends AbstractController implements Initializab
     @FXML
     public void logout(MouseEvent event) {
         new Animation(logoutIcon).fadeIn();
-        System.exit(0);
+        getModel().logout();
     }
 
     @FXML

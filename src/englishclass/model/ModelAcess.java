@@ -1,5 +1,7 @@
 package englishclass.model;
 
+import javafx.scene.control.Alert;
+import javafx.scene.control.ButtonType;
 import javafx.stage.Stage;
 
 public class ModelAcess {
@@ -30,5 +32,17 @@ public class ModelAcess {
 
     public void setUsuario(UserModel usuario) {
         this.usuario = usuario;
+    }
+
+    public void logout(){
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        alert.setTitle("Logout");
+        alert.setHeaderText("You are leaving");
+        alert.setContentText("Are you sure to Logout?");
+
+        if (alert.showAndWait().get() == ButtonType.OK){
+            System.out.println("Saindo....");
+            primaryStage.close();
+        }
     }
 }

@@ -51,7 +51,8 @@ public class ConnectionDB {
             statement = con.createStatement();
             resultSet = statement.executeQuery(pSQL);
         } catch (SQLException e) {
-            e.getMessage();
+            System.out.println(e.getCause());
+            System.out.println(pSQL);
         }
     }
 
@@ -63,6 +64,7 @@ public class ConnectionDB {
             return true;
         } catch (SQLException ex) {
             ex.printStackTrace();
+            System.out.println(pSQL);
             return false;
         }finally {
             close();
@@ -76,6 +78,7 @@ public class ConnectionDB {
             return statement.executeUpdate(pSQL);
         } catch (SQLException ex) {
             ex.printStackTrace();
+            System.out.println(pSQL);
             return 0;
         }finally {
             close();

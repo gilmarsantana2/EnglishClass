@@ -10,22 +10,46 @@ public class UserDao extends ConnectionDB implements DAOInterface<UserModel> {
 
     @Override
     public int incluir(UserModel model) {
-        return 0;
+        return insertSQL("INSERT INTO " + tableName +
+                "(nome, password) VALUES ("
+                + "'" + model.getNome() + "', "
+                + "'" + model.getPassword() + "');"
+        );
     }
 
     @Override
     public boolean excluir(int id) {
-        return false;
+        return executarUpdateDeleteSQL("DELETE FROM " + tableName + " WHERE id = '" + id + "'");
     }
 
     @Override
     public boolean alterar(UserModel model) {
-        return false;
+        return this.executarUpdateDeleteSQL("UPDATE " + tableName + " SET "
+                + "nome = '" + model.getNome() + "', "
+                + "password = '" + model.getPassword() + "'"
+                + " WHERE id = '" + model.getId() + "';"
+        );
     }
 
     @Override
     public UserModel selectById(int id) {
-        return null;
+        var model = new UserModel();
+        try {
+            this.executarSQL("SELECT "
+                    + "id, nome, password "
+                    + "FROM " + tableName + " WHERE id = '" + id + "';");
+            while (this.getResultSet().next()) {
+                model.setId(this.getResultSet().getInt(1));
+                model.setNome(this.getResultSet().getString(2));
+                model.setPassword(this.getResultSet().getString(3));
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        } finally {
+            this.close();
+        }
+        return model;
     }
 
     @Override
@@ -42,6 +66,7 @@ public class UserDao extends ConnectionDB implements DAOInterface<UserModel> {
             }
         } catch (Exception e) {
             e.printStackTrace();
+            return null;
         } finally {
             this.close();
         }
@@ -50,6 +75,23 @@ public class UserDao extends ConnectionDB implements DAOInterface<UserModel> {
 
     @Override
     public ArrayList<UserModel> selectAll() {
-        return null;
+        ArrayList<UserModel> lista = new ArrayList<>();
+        UserModel model;
+        try {
+            this.executarSQL("select * from " + tableName + ";");
+            while (this.getResultSet().next()) {
+                model = new UserModel();
+                model.setId(this.getResultSet().getInt(1));
+                model.setNome(this.getResultSet().getString(2));
+                model.setPassword(this.getResultSet().getString(3));
+                lista.add(model);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        } finally {
+            this.close();
+        }
+        return lista;
     }
 }
