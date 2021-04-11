@@ -1,0 +1,22 @@
+.root{
+    -fx-background-color: #55BD2F;
+}
+
+.pane{
+    -fx-background-color: #ffffff;
+    -fx-background-radius: 100px;
+    -fx-border-color: #d8d8d8;
+    -fx-border-radius: 100px;
+}
+
+.menu:hover{
+    -fx-border-width: 0 0 0 4px;
+    -fx-border-color: #486B3B;
+    -fx-background-color: #329E0B;
+    -fx-cursor:hand;
+ 	-fx-fill:white;
+}
+
+.etiqueta{
+    -fx-text-fill: #000000;
+}

@@ -1,0 +1,8 @@
+.root {
+    -fx-background-color: #f7f7f7;
+}
+
+.pane{
+    -fx-background-color: #ffffff;
+    -fx-border-color: d8d8d8;
+}
