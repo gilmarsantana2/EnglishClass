@@ -2,19 +2,27 @@ package englishclass.controller;
 
 import englishclass.conection.UserDao;
 import englishclass.model.ModelAcess;
+import englishclass.util.Animation;
 import englishclass.view.ViewFactory;
+import javafx.beans.InvalidationListener;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.StackPane;
 
 import java.net.URL;
 import java.util.ResourceBundle;
 
 public class LoginController extends AbstractController implements Initializable {
 
+    @FXML
+    public StackPane stackPane;
+    @FXML
+    private AnchorPane anchorPane;
     @FXML
     private TextField txtUsername;
     @FXML
@@ -24,7 +32,6 @@ public class LoginController extends AbstractController implements Initializable
     @FXML
     private ImageView googleIcon;
 
-
     public LoginController(ModelAcess model) {
         super(model);
     }
@@ -33,7 +40,7 @@ public class LoginController extends AbstractController implements Initializable
     public void initialize(URL url, ResourceBundle resourceBundle) {
         logoIcon.setImage(ViewFactory.view.getAppIcon());
         googleIcon.setImage(ViewFactory.view.getGoogleIcon());
-
+        getModel().setController(this);
     }
 
     @FXML
@@ -56,6 +63,26 @@ public class LoginController extends AbstractController implements Initializable
 
     @FXML
     public void goSignUp(ActionEvent event) {
+        stackPane.getChildren().add(ViewFactory.view.getSignUpView());
+        changeAttributes(true);
+    }
 
+    public void changeAttributes(boolean status){
+        if(status){
+            new Animation(anchorPane).fade30();
+            txtUsername.setDisable(true);
+            txtPassword.setDisable(true);
+        } else{
+            new Animation(anchorPane).fade100();
+            txtUsername.setDisable(false);
+            txtPassword.setDisable(false);
+        }
+    }
+
+    @Override
+    public String toString() {
+        return "LoginController{" +
+                "controller=" + "goooo" +
+                '}';
     }
 }

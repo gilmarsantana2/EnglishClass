@@ -20,6 +20,7 @@ public class ViewFactory {
     private final String topMenu = "topMenu.fxml";
     private final String loginView = "loginView.fxml";
     private final String installView = "installView.fxml";
+    private final String signUpView = "signUpView.fxml";
 
     public Node getMainView(){
         MainController controller = new MainController(modelAcess);
@@ -44,6 +45,11 @@ public class ViewFactory {
     public Scene getInstallView(){
         InstallController controller = new InstallController(modelAcess);
         return new Scene((Parent) inicializeScene(installView, controller));
+    }
+
+    public Node getSignUpView(){
+        SignUpController controller = new SignUpController(modelAcess);
+        return inicializeScene(signUpView, controller);
     }
 
     private Node inicializeScene(String path, AbstractController controller) {

@@ -30,7 +30,51 @@ public class Animation {
                         new KeyValue(node.opacityProperty(), 1, EASE))
         );
         linha.play();
+    }
 
+    public void fade30(){
+        linha = new Timeline(
+                new KeyFrame(Duration.millis(0),
+                        new KeyValue(node.opacityProperty(), 1, EASE)),
+                new KeyFrame(Duration.millis(1000),
+                        new KeyValue(node.opacityProperty(), 0.3, EASE))
+        );
+        linha.play();
+    }
+    public void fade100(){
+        linha = new Timeline(
+                new KeyFrame(Duration.millis(0),
+                        new KeyValue(node.opacityProperty(), 0.3, EASE)),
+                new KeyFrame(Duration.millis(500),
+                        new KeyValue(node.opacityProperty(), 1, EASE))
+        );
+        linha.play();
+    }
+
+    public void fadeInUp(){
+        linha = new Timeline(
+                new KeyFrame(Duration.millis(0),
+                        new KeyValue(node.opacityProperty(), 0, EASE),
+                        new KeyValue(node.translateYProperty(), node.getBoundsInParent().getHeight(), EASE)),
+                new KeyFrame(Duration.millis(1000),
+                        new KeyValue(node.opacityProperty(), 1, EASE),
+                        new KeyValue(node.translateYProperty(), 0, EASE))
+        );
+        linha.play();
+    }
+
+    public Timeline fadeOutDown(){
+        linha = new Timeline(
+                new KeyFrame(Duration.millis(0),
+                        new KeyValue(node.opacityProperty(), 1, EASE),
+                        new KeyValue(node.translateYProperty(), 0, EASE)
+                ),
+                new KeyFrame(Duration.millis(1000),
+                        new KeyValue(node.opacityProperty(), 0, EASE),
+                        new KeyValue(node.translateYProperty(), node.getBoundsInParent().getHeight(), EASE)
+                )
+        );
+        return linha;
     }
 
     public BooleanProperty fadeLeft() {
