@@ -27,11 +27,12 @@
             <Image url="@../../../res/icons/user.png" />
          </image>
       </ImageView>
-      <Button layoutX="166.0" layoutY="373.0" mnemonicParsing="false" onAction="#goAddImage" text="Add Image" />
+      <Button layoutX="156.0" layoutY="411.0" mnemonicParsing="false" onAction="#goAddImage" text="Add Image" />
       <Button defaultButton="true" layoutX="317.0" layoutY="471.0" mnemonicParsing="false" onAction="#goSignUp" text="Sign Up" />
       <Button cancelButton="true" layoutX="36.0" layoutY="471.0" mnemonicParsing="false" onAction="#goCancel" text="Cancel" />
       <PasswordField fx:id="txtPassword" layoutX="31.0" layoutY="137.0" prefHeight="24.0" prefWidth="369.0" promptText="**********" />
       <PasswordField fx:id="txtConfPassword" layoutX="33.0" layoutY="198.0" prefHeight="24.0" prefWidth="369.0" promptText="**********" />
       <TextField fx:id="txtname" layoutX="33.0" layoutY="260.0" prefHeight="24.0" prefWidth="369.0" />
+      <Label fx:id="lblImage" layoutX="164.0" layoutY="373.0" />
    </children>
 </AnchorPane>
