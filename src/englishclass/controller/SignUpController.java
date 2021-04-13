@@ -16,7 +16,7 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.FileChooser;
-import org.hsqldb.rights.User;
+
 
 import java.io.File;
 import java.io.FileInputStream;
