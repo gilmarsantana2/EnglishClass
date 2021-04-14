@@ -41,7 +41,7 @@ public class SignUpController extends AbstractController implements Initializabl
     @FXML
     private Label lblImage;
 
-    private String imagePath;
+    private String imagePath = "";
 
     public SignUpController(ModelAcess model) {
         super(model);
@@ -84,14 +84,11 @@ public class SignUpController extends AbstractController implements Initializabl
         if (txtConfPassword.getText().equals(txtPassword.getText())){
             var dao = new UserDao();
             var user = new UserModel();
-            user.setNome(txtUsername.getText());
+            user.setUserName(txtUsername.getText());
             user.setPassword(txtConfPassword.getText());
-            if (imagePath == null){
-                user.setUserImage("");
-            }else {
-                user.setUserImage(imagePath);
-            }
-            //dao.incluir(user);
+            user.setFullName(txtname.getText());
+            user.setUserImage(imagePath);
+            dao.incluir(Validator.valid(user));
             //todo
         }else {
             Alert alert = new Alert(Alert.AlertType.WARNING);

@@ -12,7 +12,7 @@ public class UserDao extends ConnectionDB implements DAOInterface<UserModel> {
     public int incluir(UserModel model) {
         return insertSQL("INSERT INTO " + tableName +
                 "(nome, password) VALUES ("
-                + "'" + model.getNome() + "', "
+                + "'" + model.getUserName() + "', "
                 + "'" + model.getPassword() + "');"
         );
     }
@@ -25,7 +25,7 @@ public class UserDao extends ConnectionDB implements DAOInterface<UserModel> {
     @Override
     public boolean alterar(UserModel model) {
         return this.executarUpdateDeleteSQL("UPDATE " + tableName + " SET "
-                + "nome = '" + model.getNome() + "', "
+                + "nome = '" + model.getUserName() + "', "
                 + "password = '" + model.getPassword() + "'"
                 + " WHERE id = '" + model.getId() + "';"
         );
@@ -40,7 +40,7 @@ public class UserDao extends ConnectionDB implements DAOInterface<UserModel> {
                     + "FROM " + tableName + " WHERE id = '" + id + "';");
             while (this.getResultSet().next()) {
                 model.setId(this.getResultSet().getInt(1));
-                model.setNome(this.getResultSet().getString(2));
+                model.setUserName(this.getResultSet().getString(2));
                 model.setPassword(this.getResultSet().getString(3));
             }
         } catch (Exception e) {
@@ -61,7 +61,7 @@ public class UserDao extends ConnectionDB implements DAOInterface<UserModel> {
                     + "FROM " + tableName + " WHERE nome = '" + name + "';");
             while (this.getResultSet().next()) {
                 model.setId(this.getResultSet().getInt(1));
-                model.setNome(this.getResultSet().getString(2));
+                model.setUserName(this.getResultSet().getString(2));
                 model.setPassword(this.getResultSet().getString(3));
             }
         } catch (Exception e) {
@@ -82,7 +82,7 @@ public class UserDao extends ConnectionDB implements DAOInterface<UserModel> {
             while (this.getResultSet().next()) {
                 model = new UserModel();
                 model.setId(this.getResultSet().getInt(1));
-                model.setNome(this.getResultSet().getString(2));
+                model.setUserName(this.getResultSet().getString(2));
                 model.setPassword(this.getResultSet().getString(3));
                 lista.add(model);
             }

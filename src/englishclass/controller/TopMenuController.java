@@ -41,7 +41,7 @@ public class TopMenuController extends AbstractController implements Initializab
         settingIcon.setImage(ViewFactory.view.getSettingIcon());
         logoutIcon.setImage(ViewFactory.view.getDoorIcon());
         menuIcon.setImage(ViewFactory.view.getMenuIcon());
-        userName.setText(getModel().getUsuario().getNome());
+        userName.setText(getModel().getUsuario().getUserName());
     }
 
     @FXML
