@@ -1,4 +1,4 @@
 Manifest-Version: 1.0
 Main-Class: englishclass.Main
-Class-Path: lib/
+Class-Path: lib/jfoenix-9.0.10.jar lib/hsqldb.jar
 
