@@ -1,5 +1,6 @@
 package englishclass.model;
 
+import englishclass.conection.SQLCollum;
 import englishclass.controller.Validator.StartDate;
 import englishclass.controller.Validator.Password;
 
@@ -7,23 +8,28 @@ import java.util.Date;
 
 public class UserModel {
 
-    private int Id;
+    @SQLCollum(name="id")
+    private Integer id;
+    @SQLCollum(name = "nome")
     private String userName;
     @Password
+    @SQLCollum(name = "password")
     private String password;
     private String fullName;
     @StartDate
     private Date startDate;
     private Aulas aulas;
+    @SQLCollum(name = "user_image")
     private String userImage;
+    @SQLCollum(name = "type")
     private String type;
 
     public int getId() {
-        return Id;
+        return id;
     }
 
     public void setId(int id) {
-        Id = id;
+        this.id = id;
     }
 
     public String getUserName() {

@@ -88,8 +88,11 @@ public class SignUpController extends AbstractController implements Initializabl
             user.setPassword(txtConfPassword.getText());
             user.setFullName(txtname.getText());
             user.setUserImage(imagePath);
-            dao.incluir(Validator.valid(user));
-            //todo
+            int i =dao.incluir(user);
+            if (i == 1){
+                //TODO
+                goCancel(event);
+            }
         }else {
             Alert alert = new Alert(Alert.AlertType.WARNING);
             alert.setTitle("Error Password");

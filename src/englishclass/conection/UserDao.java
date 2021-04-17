@@ -10,11 +10,7 @@ public class UserDao extends ConnectionDB implements DAOInterface<UserModel> {
 
     @Override
     public int incluir(UserModel model) {
-        return insertSQL("INSERT INTO " + tableName +
-                "(nome, password) VALUES ("
-                + "'" + model.getUserName() + "', "
-                + "'" + model.getPassword() + "');"
-        );
+        return insertSQL(SQLQuerys.insertInto(model, tableName));
     }
 
     @Override
