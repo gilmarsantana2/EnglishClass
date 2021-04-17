@@ -1,27 +1,30 @@
 package englishclass.model;
 
-import englishclass.conection.SQLCollum;
+import englishclass.conection.annotation.PrimaryKey;
+import englishclass.conection.annotation.TableCollumn;
+import englishclass.conection.annotation.TableName;
 import englishclass.controller.Validator.StartDate;
 import englishclass.controller.Validator.Password;
 
 import java.util.Date;
 
+@TableName(table = "user")
 public class UserModel {
 
-    @SQLCollum(name="id")
-    private Integer id;
-    @SQLCollum(name = "nome")
+    @PrimaryKey(key="id")
+    private int id;
+    @TableCollumn(name = "nome")
     private String userName;
     @Password
-    @SQLCollum(name = "password")
+    @TableCollumn(name = "password")
     private String password;
     private String fullName;
     @StartDate
     private Date startDate;
     private Aulas aulas;
-    @SQLCollum(name = "user_image")
+    @TableCollumn(name = "user_image")
     private String userImage;
-    @SQLCollum(name = "type")
+    @TableCollumn(name = "type")
     private String type;
 
     public int getId() {

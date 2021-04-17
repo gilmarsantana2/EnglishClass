@@ -6,38 +6,30 @@ import java.util.ArrayList;
 
 public class UserDao extends ConnectionDB implements DAOInterface<UserModel> {
 
-    private final String tableName = "user";
-
     @Override
     public int incluir(UserModel model) {
-        return insertSQL(SQLQuerys.insertInto(model, tableName));
+        return this.insertSQL(SQLQueries.insertInto(model));
     }
 
     @Override
-    public boolean excluir(int id) {
-        return executarUpdateDeleteSQL("DELETE FROM " + tableName + " WHERE id = '" + id + "'");
+    public boolean excluir(UserModel model) {
+        return this.executarUpdateDeleteSQL(SQLQueries.delete(model));
     }
 
     @Override
     public boolean alterar(UserModel model) {
-        return this.executarUpdateDeleteSQL("UPDATE " + tableName + " SET "
-                + "nome = '" + model.getUserName() + "', "
-                + "password = '" + model.getPassword() + "'"
-                + " WHERE id = '" + model.getId() + "';"
-        );
+        return this.executarUpdateDeleteSQL(SQLQueries.update(model));
     }
 
     @Override
-    public UserModel selectById(int id) {
-        var model = new UserModel();
+    public UserModel selectById(UserModel model) {
+        var userModel = new UserModel();
         try {
-            this.executarSQL("SELECT "
-                    + "id, nome, password "
-                    + "FROM " + tableName + " WHERE id = '" + id + "';");
+            this.selectSQL(SQLQueries.selectById(model));
             while (this.getResultSet().next()) {
-                model.setId(this.getResultSet().getInt(1));
-                model.setUserName(this.getResultSet().getString(2));
-                model.setPassword(this.getResultSet().getString(3));
+                userModel.setId(this.getResultSet().getInt(1));
+                userModel.setUserName(this.getResultSet().getString(2));
+                userModel.setPassword(this.getResultSet().getString(3));
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -45,20 +37,18 @@ public class UserDao extends ConnectionDB implements DAOInterface<UserModel> {
         } finally {
             this.close();
         }
-        return model;
+        return userModel;
     }
 
     @Override
     public UserModel selectByName(String name) {
-        var model = new UserModel();
+        var userModel = new UserModel();
         try {
-            this.executarSQL("SELECT "
-                    + "id, nome, password "
-                    + "FROM " + tableName + " WHERE nome = '" + name + "';");
+            this.selectSQL(SQLQueries.selectSpecial("user", "nome ='" + name + "'"));
             while (this.getResultSet().next()) {
-                model.setId(this.getResultSet().getInt(1));
-                model.setUserName(this.getResultSet().getString(2));
-                model.setPassword(this.getResultSet().getString(3));
+                userModel.setId(this.getResultSet().getInt(1));
+                userModel.setUserName(this.getResultSet().getString(2));
+                userModel.setPassword(this.getResultSet().getString(3));
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -66,7 +56,7 @@ public class UserDao extends ConnectionDB implements DAOInterface<UserModel> {
         } finally {
             this.close();
         }
-        return model;
+        return userModel;
     }
 
     @Override
@@ -74,7 +64,7 @@ public class UserDao extends ConnectionDB implements DAOInterface<UserModel> {
         ArrayList<UserModel> lista = new ArrayList<>();
         UserModel model;
         try {
-            this.executarSQL("select * from " + tableName + ";");
+            this.selectSQL(SQLQueries.selectAll("user"));
             while (this.getResultSet().next()) {
                 model = new UserModel();
                 model.setId(this.getResultSet().getInt(1));

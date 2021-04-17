@@ -5,9 +5,9 @@ import java.util.ArrayList;
 public interface DAOInterface<T> {
 
     int incluir(T model);
-    boolean excluir(int id);
+    boolean excluir(T model);
     boolean alterar(T model);
-    T selectById(int id);
+    T selectById(T model);
     T selectByName(String name);
     ArrayList<T> selectAll();
 }

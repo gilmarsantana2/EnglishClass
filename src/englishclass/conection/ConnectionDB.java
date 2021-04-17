@@ -45,7 +45,7 @@ public class ConnectionDB {
      * Execute Query retorna um ResultSet
      * Ideal para SQL tipo Select
      * */
-    protected void executarSQL(String pSQL) {
+    protected void selectSQL(String pSQL) {
         try {
             con = getConnection();
             statement = con.createStatement();
