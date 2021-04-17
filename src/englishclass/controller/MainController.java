@@ -1,5 +1,6 @@
 package englishclass.controller;
 
+import englishclass.util.Criptografia;
 import englishclass.view.ViewFactory;
 import javafx.fxml.Initializable;
 import englishclass.model.ModelAcess;
@@ -16,6 +17,8 @@ public class MainController extends AbstractController implements Initializable 
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+
+
 
     }
 }

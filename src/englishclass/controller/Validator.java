@@ -1,5 +1,7 @@
 package englishclass.controller;
 
+import englishclass.util.Criptografia;
+
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
@@ -8,20 +10,19 @@ import java.lang.reflect.Field;
 
 public class Validator {
 
-    public static <T> T valid(T objeto) {
-        Class<?> classe = objeto.getClass();
+    public static <T> T valid(Object model) {
+        Class<?> classe = model.getClass();
         for (Field field : classe.getDeclaredFields()) {
             if (field.isAnnotationPresent(Password.class)){
                 try {
                     field.setAccessible(true);
-                    field.set(objeto, "");
-                    return (T) field.get(objeto);
+                    field.set(model, Criptografia.hash((String) field.get(model)));
                 } catch (IllegalAccessException e) {
                     e.printStackTrace();
                 }
             }
         }
-        return null;
+        return (T) model;
     }
 
     @Target(ElementType.FIELD)

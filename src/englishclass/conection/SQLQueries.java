@@ -51,7 +51,11 @@ public class SQLQueries {
                 field.setAccessible(true);
                 TableCollumn collum = field.getAnnotation(TableCollumn.class);
                 try {
-                    sql += collum.name() + " = '" + field.get(model).toString() + "', ";
+                    try {
+                        sql += collum.name() + " = '" + field.get(model) + "', ";
+                    } catch (NullPointerException e) {
+                        sql += collum.name() + " = default, ";
+                    }
                 } catch (IllegalAccessException e) {
                     e.printStackTrace();
                 }
@@ -62,15 +66,15 @@ public class SQLQueries {
         return sql;
     }
 
-    public static String selectById(Object model){
+    public static String selectById(Object model) {
         return "SELECT * FROM " + getTableName(model) + " WHERE " + getPrimaryKey(model) + ";";
     }
 
-    public static String selectSpecial(String tableName, String search){
-        return "SELECT * FROM " + tableName + " WHERE " + search;
+    public static String selectSpecial(String tableName, String search) {
+        return "SELECT * FROM " + tableName + " WHERE " + search + ";";
     }
 
-    public static String selectAll(String tableName){
+    public static String selectAll(String tableName) {
         return "SELECT * FROM " + tableName + ";";
     }
 

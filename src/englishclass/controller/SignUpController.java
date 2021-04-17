@@ -88,7 +88,7 @@ public class SignUpController extends AbstractController implements Initializabl
             user.setPassword(txtConfPassword.getText());
             user.setFullName(txtname.getText());
             user.setUserImage(imagePath);
-            int i =dao.incluir(user);
+            int i =dao.incluir(Validator.valid(user));
             if (i == 1){
                 //TODO
                 goCancel(event);

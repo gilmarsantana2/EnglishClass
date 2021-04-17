@@ -4,9 +4,11 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.paint.Color?>
 <?import javafx.scene.text.Font?>
 
 <AnchorPane fx:id="anchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="520.0" prefWidth="420.0" style="-fx-background-color: #fff;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1">
@@ -35,4 +37,11 @@
       <TextField fx:id="txtname" layoutX="33.0" layoutY="260.0" prefHeight="24.0" prefWidth="369.0" />
       <Label fx:id="lblImage" layoutX="164.0" layoutY="373.0" />
    </children>
+   <effect>
+      <DropShadow blurType="TWO_PASS_BOX" spread="0.55">
+         <color>
+            <Color opacity="0.5169491767883301" />
+         </color>
+      </DropShadow>
+   </effect>
 </AnchorPane>

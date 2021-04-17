@@ -11,7 +11,7 @@ import java.util.Date;
 @TableName(table = "user")
 public class UserModel {
 
-    @PrimaryKey(key="id")
+    @PrimaryKey(key = "id")
     private int id;
     @TableCollumn(name = "nome")
     private String userName;

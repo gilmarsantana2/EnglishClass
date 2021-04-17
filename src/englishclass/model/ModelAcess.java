@@ -1,7 +1,5 @@
 package englishclass.model;
 
-import englishclass.controller.AbstractController;
-import englishclass.controller.LoginController;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
 import javafx.stage.Stage;

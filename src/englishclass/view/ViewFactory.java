@@ -21,6 +21,7 @@ public class ViewFactory {
     private final String loginView = "loginView.fxml";
     private final String installView = "installView.fxml";
     private final String signUpView = "signUpView.fxml";
+    private final String forgetPasswordView = "forgetPasswordView.fxml";
 
     public Node getMainView(){
         MainController controller = new MainController(modelAcess);
@@ -50,6 +51,11 @@ public class ViewFactory {
     public Node getSignUpView(){
         SignUpController controller = new SignUpController(modelAcess);
         return inicializeScene(signUpView, controller);
+    }
+
+    public Node getForgetPassView(){
+        ForgetPasswordController controller = new ForgetPasswordController(modelAcess);
+        return inicializeScene(forgetPasswordView, controller);
     }
 
     private Node inicializeScene(String path, AbstractController controller) {

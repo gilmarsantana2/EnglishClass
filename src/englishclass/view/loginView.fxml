@@ -14,10 +14,9 @@
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.text.Font?>
 
-
 <StackPane fx:id="stackPane" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <AnchorPane id="AnchorPane" fx:id="anchorPane" prefHeight="503.0" prefWidth="854.0" style="-fx-background-color: #fff;">
+      <AnchorPane id="AnchorPane" fx:id="anchorPane" prefHeight="540.0" prefWidth="854.0" style="-fx-background-color: #fff;">
           <children>
               <AnchorPane prefHeight="503.0" prefWidth="382.0" style="-fx-background-color: #0C39FF;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
                   <children>
