@@ -49,6 +49,8 @@ public class UserDao extends ConnectionDB implements DAOInterface<UserModel> {
                 userModel.setId(this.getResultSet().getInt(1));
                 userModel.setUserName(this.getResultSet().getString(2));
                 userModel.setPassword(this.getResultSet().getString(3));
+                userModel.setUserImage(this.getResultSet().getString(4));
+                userModel.setType(this.getResultSet().getString(5));
             }
         } catch (Exception e) {
             e.printStackTrace();

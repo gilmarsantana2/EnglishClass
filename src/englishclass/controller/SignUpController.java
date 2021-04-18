@@ -90,8 +90,8 @@ public class SignUpController extends AbstractController implements Initializabl
             user.setUserImage(imagePath);
             int i =dao.incluir(Validator.valid(user));
             if (i == 1){
-                //TODO
-                goCancel(event);
+                getModel().setUsuario(user);
+                getModel().getPrimaryStage().setScene(ViewFactory.view.startBorder());
             }
         }else {
             Alert alert = new Alert(Alert.AlertType.WARNING);

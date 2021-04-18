@@ -65,10 +65,12 @@ public class TopMenuController extends AbstractController implements Initializab
     @FXML
     public void showNotification(MouseEvent event) {
     new Animation(notificationIcon).fadeIn();
+    //TODO
     }
 
     @FXML
     public void showSettings(MouseEvent event) {
         new Animation(settingIcon).fadeIn();
+        //TODO
     }
 }

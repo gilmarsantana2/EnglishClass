@@ -90,4 +90,18 @@ public class UserModel {
     public void setType(String type) {
         this.type = type;
     }
+
+    @Override
+    public String toString() {
+        return "UserModel{" +
+                "id=" + id +
+                ", userName='" + userName + '\'' +
+                ", password='" + password + '\'' +
+                ", fullName='" + fullName + '\'' +
+                ", startDate=" + startDate +
+                ", aulas=" + aulas +
+                ", userImage='" + userImage + '\'' +
+                ", type='" + type + '\'' +
+                '}';
+    }
 }

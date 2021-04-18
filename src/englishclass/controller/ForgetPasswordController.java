@@ -4,6 +4,7 @@ import englishclass.conection.UserDao;
 import englishclass.model.ModelAcess;
 import englishclass.util.Animation;
 import englishclass.util.Criptografia;
+import englishclass.view.ViewFactory;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -59,7 +60,10 @@ public class ForgetPasswordController extends AbstractController implements Init
                 alert.setTitle("Password has changed");
                 alert.setHeaderText("Password has changed in user: " + user.getUserName());
                 alert.setContentText("Congrats");
-                alert.showAndWait();
+                if (alert.showAndWait().get() == ButtonType.OK) {
+                    getModel().setUsuario(user);
+                    getModel().getPrimaryStage().setScene(ViewFactory.view.startBorder());
+                }
             }
         }else {
             Alert alert = new Alert(Alert.AlertType.ERROR);

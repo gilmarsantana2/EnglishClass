@@ -7,11 +7,11 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
 
-<AnchorPane id="leftPane" fx:id="leftPane" minHeight="600.0" minWidth="-Infinity" prefWidth="150.0" styleClass="root" stylesheets="@css/leftfullmenu.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane id="leftPane" fx:id="leftPane" minHeight="600.0" minWidth="-Infinity" prefWidth="150.0" styleClass="root" stylesheets="@css/leftfullmenu.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <Pane layoutX="25.0" layoutY="36.0" prefHeight="100.0" prefWidth="100.0" styleClass="pane" AnchorPane.leftAnchor="25.0" AnchorPane.rightAnchor="25.0">
          <children>
-            <ImageView fx:id="userImage" fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="userImage" fitHeight="100.0" fitWidth="100.0" pickOnBounds="true">
                <image>
                   <Image url="@../../../res/icons/user.png" />
                </image></ImageView>
